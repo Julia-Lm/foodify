@@ -1,0 +1,101 @@
+@import '../../style/variables.scss';
+@import '../../style/mixins.scss';
+
+.add-dish-body{
+    position: relative;
+    margin: auto;
+    background-color: $white;
+    width: 433px;
+    min-height: 407px;
+    max-height: 640px;
+    padding: 28px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    @include _mobile{
+        width: 85%;
+        padding: 16px;
+        min-height: 370px;
+    }
+}
+.dish-body-title{
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: $dark;
+}
+.form-dish {
+    display: flex;
+    flex-direction: column;
+    &__name{
+        margin-top: 50px;
+        @include _mobile{
+            margin-top: 40px;
+        }
+    }
+    &__description{
+        margin-top: 17px;
+        height: 159px;
+        @include _mobile{
+            height: 275px;
+        }
+    }
+    &__name,
+    &__description{
+        width: 343px;
+        padding: 8px 8px;
+        border: 1px solid $txtgrey;
+        box-sizing: border-box;
+        font-family: 'Roboto';
+        font-size: 18px;
+        line-height: 21px;  
+        align-self: center;
+        border-radius: 5px;
+
+        @include _mobile{
+            width: 100%;
+        }
+    }
+    
+    &__button{
+        padding: 8px 18px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+        background-color: $grey;
+        border: 1px solid $txtgrey;
+        box-sizing: border-box;
+        width: 343px;
+        align-self: center;
+        margin-top: 17px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        @include _mobile{
+            width: 100%;
+        }
+    }
+}
+
+.dish-body-close{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    border: 1px solid $dark;
+    background-color:$white;
+    border-radius: 5px;
+
+    @include _mobile{
+        top: 15px;
+        right: 15px;
+    }
+}

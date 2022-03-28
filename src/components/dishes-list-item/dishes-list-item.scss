@@ -1,0 +1,85 @@
+@import '../../style/variables.scss';
+@import '../../style/mixins.scss';
+
+.dishes-list{
+    &__item{
+        width: 390px;
+        margin: 0 auto;
+        background-color: $main-color;
+        position: relative;
+
+        @include _mobile{
+            width: 90%;
+            
+        }
+    }
+}
+.item{
+    &__img{
+        width: 390px;
+        height: 234px;
+
+        @include _mobile{
+            width: 100%;
+            height: 265px;
+        }
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px 45px;
+        min-height: 569px;
+
+        @include _mobile{
+            min-height: 500px;
+        }
+    }
+    &__description{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        margin-top: 10px;
+    }
+    &__title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        margin: 0;
+    }
+    &__instructions{
+        display: block;
+        height: 153px;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        font-size: 18px;
+        line-height: 25px;  
+        color: $dark;
+    }
+}
+.active{
+    height: auto;
+    overflow: none;
+}
+.collapse-text{
+    display: none;
+}
+.read-more, 
+.collapse-text{
+    padding-top: 10px;
+    text-align: right;
+    color: $grey;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.btn-trash{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    align-self: flex-end;
+}

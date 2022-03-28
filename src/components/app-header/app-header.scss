@@ -1,0 +1,84 @@
+@import '../../style/variables.scss';
+@import '../../style/mixins.scss';
+
+.app-header{
+    background-color: $main-color;
+}
+.container{
+    max-width: 1230px;
+    margin: 0 auto;
+    @include _mobile{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.header-menu{
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include _mobile{
+        height: 50px;
+    }
+}
+.header-button{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: $dark;
+    border: none;
+    background-color: $main-color;
+    cursor: pointer;
+    
+}
+.header-menu-button{
+    @include _mobile{
+        margin: 0 auto;
+    }
+}
+.button-favourites{
+    margin-left: 50px;
+}
+.header-button-link{
+    text-decoration: none;
+    font-size: 18px;
+    color: $dark;
+    font-weight: 500;
+    cursor: pointer;
+}
+.header-button-add{
+    display: none;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    background-color: $grey;
+    border: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: $dark;
+    padding: 10px 28px;
+    border-radius: 5px;
+    
+    @include _mobile{
+        opacity: 0;
+        z-index: -1;
+    }
+}
+.header-button-add-sm{
+    display: none;
+
+    @include _mobile{
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+}
+
