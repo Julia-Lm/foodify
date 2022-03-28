@@ -83,3 +83,7 @@
     bottom: 10px;
     align-self: flex-end;
 }
+.btn-trash:hover{
+    background-color:$white;
+    transition: all 0.5s ;
+}

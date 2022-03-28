@@ -6,9 +6,9 @@
 }
 .button{
     padding: 12px 77px;
-    border: 1px solid $grey;
+    border: 2px solid $grey;
     background-color: $grey;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 18px;
     color: $dark;
     cursor: pointer;
@@ -20,6 +20,7 @@
 }
 .button:hover{
     background-color: $white;
+    transition: all 0.5s ;
 }
 .buttons{
     padding-top: 10px;

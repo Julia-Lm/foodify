@@ -56,7 +56,7 @@
     right: 0;
     cursor: pointer;
     background-color: $grey;
-    border: none;
+    border: 2px solid $grey;
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
@@ -68,6 +68,11 @@
         opacity: 0;
         z-index: -1;
     }
+}
+.header-button-add:hover{
+    border-color: $grey;
+    background-color: $white;
+    transition: all 0.5s ;
 }
 .header-button-add-sm{
     display: none;
