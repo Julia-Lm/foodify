@@ -12,10 +12,43 @@
     @include _mobile{
         justify-content: center;
     }
+    @include _601-819{
+        justify-content: center;
+    }
+    @include _820-900{
+        justify-content: space-around;
+    }
+    @include _901-1229{
+        justify-content: space-around;
+    }
 
     .dishes-list__item{
         margin: 0 10px;
         margin-bottom: 20px;
+        @include _820-900{
+            width: 32%;
+            margin: 0;
+        }
+        @include _901-1229{
+            width: 32%;
+            margin: 0;
+        }
+    }
+    .item__img{
+        @include _820-900{
+            width: 100%;
+        }
+        @include _901-1229{
+            width: 100%;
+        }
+    }
+    .item__title {
+        @include _820-900{
+            font-size: 22px;
+        }
+    }
+    .ingredient{
+        margin-top: 10px;
     }
 }
 

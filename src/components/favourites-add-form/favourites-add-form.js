@@ -25,6 +25,7 @@ class FavouritesAddForm extends Component {
     }
 
     onDeleteAddDishModal() {
+        document.body.style.overflow = "";
         const addDish = document.querySelector('.add-dish');
         addDish.style.display = 'none';
     }

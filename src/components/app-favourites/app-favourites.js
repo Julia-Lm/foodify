@@ -17,7 +17,14 @@ class AppFavourites extends Component {
         let buttonAdd = document.querySelector('.header-button-add');
         const buttonAddSm = document.querySelector('.header-button-add-sm');
         buttonAdd.style.display = 'block';
-        buttonAddSm.style.display = 'block';
+
+        window.onresize = function (e) {
+            if (e.target.outerWidth < 900) {
+                buttonAddSm.style.display = 'flex';
+            } else {
+                buttonAddSm.style.display = 'none';
+            }
+        };
 
         this.setState(({ dishes }) => {
             const dishesLocal = localStorage.getItem('dishes') ? JSON.parse(localStorage.getItem('dishes')) : [];
@@ -30,6 +37,7 @@ class AppFavourites extends Component {
 
 
     onAddDishInArr = (name, instructions, onDeleteAddDishModal) => {
+
         if (name !== '' && instructions !== '' && name.length > 3) {
             onDeleteAddDishModal();
             const arr = localStorage.getItem('dishes') ? JSON.parse(localStorage.getItem('dishes')) : [];

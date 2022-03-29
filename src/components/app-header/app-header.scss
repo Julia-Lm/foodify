@@ -38,6 +38,15 @@
     @include _mobile{
         margin: 0 auto;
     }
+    @include _601-819{
+        margin: 0 auto;
+    }
+    @include _601-819{
+        margin: 0 auto;
+    }
+    @include _820-900{
+        margin: 0 auto;
+    }
 }
 .button-favourites{
     margin-left: 50px;
@@ -68,6 +77,18 @@
         opacity: 0;
         z-index: -1;
     }
+    @include _601-819{
+        opacity: 0;
+        z-index: -1;
+    }
+    @include _601-819{
+        opacity: 0;
+        z-index: -1;
+    }
+    @include _820-900{
+        opacity: 0;
+        z-index: -1;
+    }
 }
 .header-button-add:hover{
     border-color: $grey;
@@ -76,14 +97,29 @@
 }
 .header-button-add-sm{
     display: none;
+    
+    
 
     @include _mobile{
+        display: flex;
+        margin: 0 auto;
+        width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    @include _601-819{
+        display: flex;
+        margin-right: auto;
+    }
+    @include _820-900{
+        display: flex;
+        margin-right: auto;
+    }
+    img, svg{
         width: 30px;
         height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
     }
 }
 

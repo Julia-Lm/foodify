@@ -9,7 +9,13 @@ class AppHeader extends Component {
         const buttonAdd = document.querySelector('.header-button-add');
         const buttonAddSm = document.querySelector('.header-button-add-sm');
         buttonAdd.style.display = 'block';
-        buttonAddSm.style.display = 'block';
+
+        if (window.screen.width < 900) {
+            buttonAddSm.style.display = 'flex';
+        } else {
+            buttonAddSm.style.display = 'none';
+        }
+
     }
 
     onDeleteButton() {
@@ -24,6 +30,7 @@ class AppHeader extends Component {
 
     }
     onAddDish() {
+        document.body.style.overflow = "hidden";
         const addDish = document.querySelector('.add-dish');
         addDish.style.display = 'flex';
     }
