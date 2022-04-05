@@ -48,9 +48,7 @@
         flex: 9;
         margin-top: 17px;
         height: 159px;
-        @include _mobile{
-            flex: 6;
-        }
+        
         @include _350-450{
             height: 190px;
         }

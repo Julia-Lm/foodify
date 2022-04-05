@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import ReactDOM from 'react-dom';
+
 import './app-favourites.scss';
 
 import DishesList from '../dishes-list/dishes-list';
@@ -10,21 +12,10 @@ class AppFavourites extends Component {
         this.state = {
             dishes: [],
         };
-        this.maxId = 0;
     }
 
-    componentDidMount() {
-        let buttonAdd = document.querySelector('.header-button-add');
-        const buttonAddSm = document.querySelector('.header-button-add-sm');
-        buttonAdd.style.display = 'block';
-
-        window.onresize = function (e) {
-            if (e.target.outerWidth < 900) {
-                buttonAddSm.style.display = 'flex';
-            } else {
-                buttonAddSm.style.display = 'none';
-            }
-        };
+    componentDidMount = () => {
+        this.props.onAddButton();
 
         this.setState(({ dishes }) => {
             const dishesLocal = localStorage.getItem('dishes') ? JSON.parse(localStorage.getItem('dishes')) : [];
@@ -38,12 +29,11 @@ class AppFavourites extends Component {
 
     onAddDishInArr = (name, instructions, onDeleteAddDishModal) => {
 
-        if (name !== '' && instructions !== '' && name.length > 3) {
+        if (name !== '' && instructions !== '') {
             onDeleteAddDishModal();
-            const arr = localStorage.getItem('dishes') ? JSON.parse(localStorage.getItem('dishes')) : [];
 
             const newIem = {
-                id: arr.length++,
+                id: Math.floor(Math.random() * (3002 - 10) + 10),
                 name,
                 instructions,
                 readMore: false,
@@ -61,6 +51,7 @@ class AppFavourites extends Component {
             });
         }
     }
+
     deleteItem = (id) => {
         this.setState(({ dishes }) => {
             const newArr = dishes.filter(item => item.id !== id);
@@ -86,22 +77,49 @@ class AppFavourites extends Component {
         const { dishes } = this.state;
 
         return (
-            <div className="app-favourites">
-                <div className="container-favourites">
-                    <DishesList
-                        data={dishes}
-                        onDelete={this.deleteItem}
-                        onToggleProp={this.onToggleProp} />
-                    <div className='add-dish'>
-                        <FavouritesAddForm onAdd={this.onAddDishInArr} />
+            <>
+                <div className="app-favourites">
+                    <div className="container-favourites">
+                        <DishesList
+                            data={dishes}
+                            onDelete={this.deleteItem}
+                            onToggleProp={this.onToggleProp} />
                     </div>
-
-
                 </div>
 
-            </div>
+                <Portal>
+                    {this.props.addModal && <Modal addModal={this.props.addModal} onAddDishInArr={this.onAddDishInArr} onDeleteModal={this.props.onDeleteModal} />}
+                </Portal>
+            </>
+
         )
     }
 }
+
+class Portal extends Component {
+    node = document.createElement('div');
+
+    componentDidMount() {
+        this.node.classList = 'portal'
+        document.body.appendChild(this.node);
+    }
+    componentWillUnmount() {
+        document.body.removeChild(this.node);
+    }
+    render() {
+        const { children } = this.props;
+
+        return ReactDOM.createPortal(children, this.node);
+    }
+}
+
+const Modal = (props) => {
+    return (
+        <div className={props.addModal ? 'add-dish-active' : 'add-dish'}>
+            <FavouritesAddForm onAdd={props.onAddDishInArr} onDeleteModal={props.onDeleteModal} />
+        </div>
+    )
+}
+
 
 export default AppFavourites;

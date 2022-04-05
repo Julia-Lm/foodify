@@ -5,7 +5,6 @@ import FoodifyServices from '../../services/foodify-services';
 import DishesList from '../dishes-list/dishes-list';
 
 class AppRandomDish extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -27,11 +26,12 @@ class AppRandomDish extends Component {
     foodifyServices = new FoodifyServices();
 
     componentDidMount() {
+        /*
         const buttonAddSm = document.querySelector('.header-button-add-sm');
         if (buttonAddSm !== null) {
             buttonAddSm.style.display = 'none';
         }
-
+*/
         this.updateDish();
     }
 
